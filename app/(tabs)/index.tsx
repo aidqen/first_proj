@@ -2,6 +2,14 @@ import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
+  const router = useRouter()
+
+  const {
+    data: trendingMovies,
+    loading: trendingLoading,
+    error: trendingError
+  } = useFetch(getTrendingMovies)
+
   const {
     data: movies,
     loading: moviesLoading,
