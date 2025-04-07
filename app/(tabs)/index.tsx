@@ -2,6 +2,13 @@ import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
+  const {
+    data: movies,
+    loading: moviesLoading,
+    error: moviesError } = useFetch(() => fetchMovies(
+      { query: '' }
+    ))
+
   return (
     <View
       className="flex-1 justify-center items-center"
