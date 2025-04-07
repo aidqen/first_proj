@@ -1,7 +1,18 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+const Search = () => {
+  const router = useRouter()
+  const [searchQuery, setSearchQuery] = useState('')
 
-const search = () => {
+  const {
+    data: movies,
+    loading: moviesLoading,
+    error: moviesError,
+    refetch: loadMovies,
+    reset
+  } = useFetch(() => fetchMovies(
+    { query: searchQuery }
+  ), false)
+
+  useEffect(() => {
   return (
     <View>
       <Text>search</Text>
@@ -9,4 +20,4 @@ const search = () => {
   )
 }
 
-export default search
+export default Search
